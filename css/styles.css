@@ -77,3 +77,21 @@ button.zero {
 .equals{
     background-color: #D79922;
 }
+
+.footer {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+a.footer-text {
+    font-family: 'Roboto', sans-serif;
+    font-size: 20px;
+    color: black;
+    text-decoration: none;
+}
+
+a.footer-text:hover, a.footer-text:active{
+    color: #F13C20;
+}
