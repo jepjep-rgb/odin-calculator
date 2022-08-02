@@ -61,15 +61,21 @@ function operateNumbers(input){
 
     console.log(inputArray);
     console.log(operateArray);
-    if (operateArray[0] === '+'){
-        outputPara.textContent = addNumbers(Number(inputArray[0]), Number(inputArray[1]));
-    } else if (operateArray[0] === '-'){
-        outputPara.textContent = subtractNumbers(Number(inputArray[0]), Number(inputArray[1]));
-    } else if (operateArray[0] === '*'){
-        outputPara.textContent = multiplyNumbers(Number(inputArray[0]), Number(inputArray[1]));
-    } else if (operateArray[0] === '/'){
-        outputPara.textContent = divideNumbers(Number(inputArray[0]), Number(inputArray[1]));
+
+    for (let i = 0; i < operateArray.length; i++){
+        if (operateArray[i] === '+'){
+            inputArray[i+1] = addNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
+        } else if (operateArray[i] === '-'){
+            inputArray[i+1]  = subtractNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
+        } else if (operateArray[i] === '*'){
+            inputArray[i+1]  = multiplyNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
+        } else if (operateArray[i] === '/'){
+            inputArray[i+1]  = divideNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
+        }
+        console.log(inputArray[i+1]);
     }
+
+    outputPara.textContent = inputArray[operateArray.length];
     outputDiv.append(outputPara);
 }
 
