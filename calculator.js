@@ -15,7 +15,12 @@ const operatorMultiply = document.querySelector('.multiply');
 const operatorDivide = document.querySelector('.divide');
 
 const equalSign = document.querySelector('.equals');
-const input = document.createElement('p').classList.add('input');
+
+const inputDiv = document.querySelector('.bottom-screen');
+const inputPara = document.createElement('p');
+inputPara.classList.add('input');
+
+
 function addNumbers(num1, num2){
     return num1 + num2;
 }
@@ -49,19 +54,24 @@ function operateNumbers(input){
     else if (operateArray[0] === '/') console.log(divideNumbers(Number(inputArray[0]), Number(inputArray[1])));
 }
 
-    numberOne.addEventListener('click', () => console.log('1'));
-    numberTwo.addEventListener('click', () => console.log('2'));
-    numberThree.addEventListener('click', () => console.log('3'));
-    numberFour.addEventListener('click', () => console.log('4'));
-    numberFive.addEventListener('click', () => console.log('5'));
-    numberSix.addEventListener('click', () => console.log('6'));
-    numberSeven.addEventListener('click', () => console.log('7'));
-    numberEight.addEventListener('click', () => console.log('8'));
-    numberNine.addEventListener('click', () => console.log('9'));
-    numberZero.addEventListener('click', () => console.log('0'));
+function inputDisplay(input){
+    inputPara.textContent += input;
+    inputDiv.append(inputPara);
+}
 
-    operatorAdd.addEventListener('click', () => console.log('+'));
-    operatorSubtract.addEventListener('click', () => console.log('-'));
-    operatorMultiply.addEventListener('click', () => console.log('*'));
-    operatorDivide.addEventListener('click', () => console.log('/'));
+    numberOne.addEventListener('click', () => inputDisplay('1'));
+    numberTwo.addEventListener('click', () => inputDisplay('2'));
+    numberThree.addEventListener('click', () => inputDisplay('3'));
+    numberFour.addEventListener('click', () => inputDisplay('4'));
+    numberFive.addEventListener('click', () => inputDisplay('5'));
+    numberSix.addEventListener('click', () => inputDisplay('6'));
+    numberSeven.addEventListener('click', () => inputDisplay('7'));
+    numberEight.addEventListener('click', () => inputDisplay('8'));
+    numberNine.addEventListener('click', () => inputDisplay('9'));
+    numberZero.addEventListener('click', () => inputDisplay('0'));
+
+    operatorAdd.addEventListener('click', () => inputDisplay('+'));
+    operatorSubtract.addEventListener('click', () => inputDisplay('-'));
+    operatorMultiply.addEventListener('click', () => inputDisplay('*'));
+    operatorDivide.addEventListener('click', () => inputDisplay('/'));
     equalSign.addEventListener('click', () => console.log('='));
