@@ -43,16 +43,26 @@ function divideNumbers(num1, num2){
     return num1 / num2;
 }
 
+function removeBlanks(input, operate){
+    for (let i = 0; i < operate.length; i++) {
+        if (operate[i] === ""){
+            operate.splice(i, 1);
+            i--;
+        }
+    }
+    for (let i = 0; i < input.length; i++) {
+        if (input[i] === ""){
+            input.splice(i, 1);
+            i--;
+        }
+    }
+}
+
 function operateNumbers(input){
     let inputArray = input.split(/[\+\-\*\/]/);
     let operateArray = input.split(/\d/);
 
-    for (let i = 0; i < operateArray.length; i++) {
-        if (operateArray[i] === ""){
-            operateArray.splice(i, 1);
-            i--;
-        }
-    }
+    removeBlanks(inputArray,operateArray);
 
     if (!(inputArray.length === operateArray.length + 1)) {
         outputPara.textContent = "ERROR";
