@@ -46,12 +46,19 @@ function divideNumbers(num1, num2){
 function operateNumbers(input){
     let inputArray = input.split(/[\+\-\*\/]/);
     let operateArray = input.split(/\d/);
+
     for (let i = 0; i < operateArray.length; i++) {
         if (operateArray[i] === ""){
             operateArray.splice(i, 1);
             i--;
         }
     }
+
+    if (!(inputArray.length === operateArray.length + 1)) {
+        outputPara.textContent = "ERROR";
+        return;
+    }
+
     console.log(inputArray);
     console.log(operateArray);
     if (operateArray[0] === '+'){
