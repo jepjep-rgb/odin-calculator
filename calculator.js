@@ -17,6 +17,7 @@ const operatorDivide = document.querySelector('.divide');
 const equalSign = document.querySelector('.equals');
 const deleteButton = document.querySelector('.delete');
 const clearButton = document.querySelector('.on-off');
+const periodButton = document.querySelector('.period');
 
 const inputDiv = document.querySelector('.bottom-screen');
 const inputPara = document.createElement('p');
@@ -43,6 +44,19 @@ function divideNumbers(num1, num2){
     return num1 / num2;
 }
 
+function checkPeriod(input){
+    for (let i = 0; i < input.length; i++){
+        let periodCount = 0;
+        for (let j = 0; j < input[i].length; j++){
+            if (String(input[i]).charAt(j) === '.'){
+                periodCount++;
+            }
+            if (periodCount > 1) return true;
+        }
+    }
+    return false;
+}
+
 function removeBlanks(input, operate){
     for (let i = 0; i < operate.length; i++) {
         if (operate[i] === ""){
@@ -60,17 +74,24 @@ function removeBlanks(input, operate){
 
 function operateNumbers(input){
     let inputArray = input.split(/[\+\-\*\/]/);
-    let operateArray = input.split(/\d/);
-
-    removeBlanks(inputArray,operateArray);
-
-    if (!(inputArray.length === operateArray.length + 1)) {
-        outputPara.textContent = "ERROR";
-        return;
-    }
+    let operateArray = input.split(/\d+\.*\d*/);
 
     console.log(inputArray);
     console.log(operateArray);
+
+    removeBlanks(inputArray,operateArray);
+    if (checkPeriod(inputArray)){
+        outputPara.textContent = "ERROR";
+        outputDiv.append(outputPara);
+        return;
+    }
+
+    if (!(inputArray.length === operateArray.length + 1)) {
+        outputPara.textContent = "ERROR";
+        outputDiv.append(outputPara);
+        return;
+    }
+
 
     for (let i = 0; i < operateArray.length; i++){
         if (operateArray[i] === '+'){
@@ -122,4 +143,5 @@ function inputDisplay(input){
 
     deleteButton.addEventListener('click', () => inputDisplay('delete'));
     clearButton.addEventListener('click', () => inputDisplay('clear'));
+    periodButton.addEventListener('click', () => inputDisplay('.'));
     equalSign.addEventListener('click', () => operateNumbers(inputPara.textContent));
