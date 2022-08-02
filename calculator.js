@@ -15,6 +15,8 @@ const operatorMultiply = document.querySelector('.multiply');
 const operatorDivide = document.querySelector('.divide');
 
 const equalSign = document.querySelector('.equals');
+const deleteButton = document.querySelector('.delete');
+const clearButton = document.querySelector('.on-off');
 
 const inputDiv = document.querySelector('.bottom-screen');
 const inputPara = document.createElement('p');
@@ -55,7 +57,14 @@ function operateNumbers(input){
 }
 
 function inputDisplay(input){
+    if (input === 'delete') {
+        let text = inputPara.textContent;
+        inputPara.textContent = text.slice(0, -1);
+    } else if (input === 'clear'){
+        inputPara.textContent = "";
+    } else {
     inputPara.textContent += input;
+    }
     inputDiv.append(inputPara);
 }
 
@@ -74,4 +83,7 @@ function inputDisplay(input){
     operatorSubtract.addEventListener('click', () => inputDisplay('-'));
     operatorMultiply.addEventListener('click', () => inputDisplay('*'));
     operatorDivide.addEventListener('click', () => inputDisplay('/'));
+
+    deleteButton.addEventListener('click', () => inputDisplay('delete'));
+    clearButton.addEventListener('click', () => inputDisplay('clear'));
     equalSign.addEventListener('click', () => operateNumbers(inputPara.textContent));
