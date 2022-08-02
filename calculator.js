@@ -125,6 +125,20 @@ function inputDisplay(input){
     inputDiv.append(inputPara);
 }
 
+function pressKeyboard(e){
+    if (e.key === "="){
+        operateNumbers(inputPara.textContent)
+    } if (e.keyCode >= 48 && e.keyCode <= 57){
+        inputDisplay(e.key);
+    } else if (e.keyCode >= 96 && e.keyCode <= 111){
+        inputDisplay(e.key);
+    } else if (e.keyCode >= 189 && e.keyCode <= 191){
+        inputDisplay(e.key);
+    } else if (e.keyCode === 8 || e.keyCode === 46){
+        inputDisplay('delete')
+    }
+}
+
     numberOne.addEventListener('click', () => inputDisplay('1'));
     numberTwo.addEventListener('click', () => inputDisplay('2'));
     numberThree.addEventListener('click', () => inputDisplay('3'));
@@ -145,3 +159,5 @@ function inputDisplay(input){
     clearButton.addEventListener('click', () => inputDisplay('clear'));
     periodButton.addEventListener('click', () => inputDisplay('.'));
     equalSign.addEventListener('click', () => operateNumbers(inputPara.textContent));
+
+    window.addEventListener('keydown', pressKeyboard);
