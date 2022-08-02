@@ -22,6 +22,10 @@ const inputDiv = document.querySelector('.bottom-screen');
 const inputPara = document.createElement('p');
 inputPara.classList.add('input');
 
+const outputDiv = document.querySelector('.top-screen');
+const outputPara = document.createElement('p');
+outputPara.classList.add('output');
+
 
 function addNumbers(num1, num2){
     return num1 + num2;
@@ -50,10 +54,16 @@ function operateNumbers(input){
     }
     console.log(inputArray);
     console.log(operateArray);
-    if (operateArray[0] === '+') console.log(addNumbers(Number(inputArray[0]), Number(inputArray[1])));
-    else if (operateArray[0] === '-') console.log(subtractNumbers(Number(inputArray[0]), Number(inputArray[1])));
-    else if (operateArray[0] === '*') console.log(multiplyNumbers(Number(inputArray[0]), Number(inputArray[1])));
-    else if (operateArray[0] === '/') console.log(divideNumbers(Number(inputArray[0]), Number(inputArray[1])));
+    if (operateArray[0] === '+'){
+        outputPara.textContent = addNumbers(Number(inputArray[0]), Number(inputArray[1]));
+    } else if (operateArray[0] === '-'){
+        outputPara.textContent = subtractNumbers(Number(inputArray[0]), Number(inputArray[1]));
+    } else if (operateArray[0] === '*'){
+        outputPara.textContent = multiplyNumbers(Number(inputArray[0]), Number(inputArray[1]));
+    } else if (operateArray[0] === '/'){
+        outputPara.textContent = divideNumbers(Number(inputArray[0]), Number(inputArray[1]));
+    }
+    outputDiv.append(outputPara);
 }
 
 function inputDisplay(input){
@@ -62,8 +72,9 @@ function inputDisplay(input){
         inputPara.textContent = text.slice(0, -1);
     } else if (input === 'clear'){
         inputPara.textContent = "";
+        outputPara.textContent = "";
     } else {
-    inputPara.textContent += input;
+        inputPara.textContent += input;
     }
     inputDiv.append(inputPara);
 }
