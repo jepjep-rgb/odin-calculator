@@ -87,7 +87,7 @@ function operateNumbers(input){
         console.log(inputArray[i+1]);
     }
 
-    outputPara.textContent = inputArray[operateArray.length];
+    outputPara.textContent = +parseFloat(inputArray[operateArray.length].toFixed(10));
     outputDiv.append(outputPara);
 }
 
