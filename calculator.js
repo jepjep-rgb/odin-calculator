@@ -69,8 +69,10 @@ function operateNumbers(input){
             inputArray[i+1]  = subtractNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
         } else if (operateArray[i] === '*'){
             inputArray[i+1]  = multiplyNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
-        } else if (operateArray[i] === '/'){
+        } else if (operateArray[i] === '/' && inputArray[i+1] !== '0'){
             inputArray[i+1]  = divideNumbers(Number(inputArray[i]), Number(inputArray[i+1]));
+        } else if (operateArray[i] === '/' && inputArray[i+1] === '0'){
+            inputArray[i+1] = NaN;
         }
         console.log(inputArray[i+1]);
     }
