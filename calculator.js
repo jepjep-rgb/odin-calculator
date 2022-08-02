@@ -74,4 +74,4 @@ function inputDisplay(input){
     operatorSubtract.addEventListener('click', () => inputDisplay('-'));
     operatorMultiply.addEventListener('click', () => inputDisplay('*'));
     operatorDivide.addEventListener('click', () => inputDisplay('/'));
-    equalSign.addEventListener('click', () => console.log('='));
+    equalSign.addEventListener('click', () => operateNumbers(inputPara.textContent));
