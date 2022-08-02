@@ -1,9 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .main-body {
     height: 100vh;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    background-color: #EFE2BA;
 }
 
 .calculator {
@@ -11,13 +14,15 @@
     width: 50vh;
     display: flex;
     flex-direction: column;
-    border: 2px red solid;
+    padding: 20px;
+    background-color: #4056A1;
+    border: 5px black solid;
 }
 
 .screen {
     display: flex;
     flex-direction: column;
-    height: 35%;
+    height: 25%;
     width: 100%;
     border: 2px black solid;
 }
@@ -28,17 +33,20 @@
     align-items: center;
     height: 50%;
     box-sizing: border-box;
-    border: 2px purple solid;
     padding: 10px 20px;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 50px;
+    background-color: #EFE2BA;
+    border: 1px black solid;
 }
 
 .calculator-keys {
     display: flex;
     flex-direction: column;
-    height: 65%;
+    height: 75%;
     width: 100%;
-    border: 2px brown solid;
-    justify-content: space-between;
+    justify-content: space-evenly;
 }
 
 .top-row, .bottom-row, .middle-row, .low-row {
@@ -49,8 +57,23 @@
 button {
     height: 80px;
     width: 18%;
+    background-color: #C5CBE3;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+    border: 1px black solid;
 }
 
 button.zero {
     width: 38.5%;
+}
+
+.add, .subtract, .multiply, .divide, .delete, .on-off, .equals, .answer {
+    background-color: #F13C20;
+    color: white;
+}
+
+.equals{
+    background-color: #D79922;
 }
