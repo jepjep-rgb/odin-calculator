@@ -7,6 +7,8 @@
     justify-content: center;
     align-items: center;
     background-color: #EFE2BA;
+    margin: 0;
+    padding: 0;
 }
 
 .calculator {
@@ -65,17 +67,29 @@ button {
     border: 1px black solid;
 }
 
+button:hover {
+    background-color: #8992b3;
+}
+
 button.zero {
     width: 38.5%;
 }
 
-.add, .subtract, .multiply, .divide, .delete, .on-off, .equals, .answer {
+.add, .subtract, .multiply, .divide, .delete, .on-off, .answer {
     background-color: #F13C20;
     color: white;
 }
 
-.equals{
+.equals {
     background-color: #D79922;
+}
+
+.add:hover, .subtract:hover, .multiply:hover, .divide:hover, .delete:hover, .on-off:hover, .answer:hover {
+    background-color: #b1210a;
+}
+
+.equals:hover {
+    background-color: #916109;
 }
 
 .footer {
