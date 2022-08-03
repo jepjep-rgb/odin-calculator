@@ -18,6 +18,7 @@ const equalSign = document.querySelector('.equals');
 const deleteButton = document.querySelector('.delete');
 const clearButton = document.querySelector('.on-off');
 const periodButton = document.querySelector('.period');
+const answerButton = document.querySelector('.answer');
 
 const inputDiv = document.querySelector('.bottom-screen');
 const inputPara = document.createElement('p');
@@ -119,6 +120,8 @@ function inputDisplay(input){
     } else if (input === 'clear'){
         inputPara.textContent = "";
         outputPara.textContent = "";
+    } else if (input === 'answer'){
+        inputPara.textContent += outputPara.textContent;
     } else {
         inputPara.textContent += input;
     }
@@ -139,25 +142,27 @@ function pressKeyboard(e){
     }
 }
 
-    numberOne.addEventListener('click', () => inputDisplay('1'));
-    numberTwo.addEventListener('click', () => inputDisplay('2'));
-    numberThree.addEventListener('click', () => inputDisplay('3'));
-    numberFour.addEventListener('click', () => inputDisplay('4'));
-    numberFive.addEventListener('click', () => inputDisplay('5'));
-    numberSix.addEventListener('click', () => inputDisplay('6'));
-    numberSeven.addEventListener('click', () => inputDisplay('7'));
-    numberEight.addEventListener('click', () => inputDisplay('8'));
-    numberNine.addEventListener('click', () => inputDisplay('9'));
-    numberZero.addEventListener('click', () => inputDisplay('0'));
+numberOne.addEventListener('click', () => inputDisplay('1'));
+numberTwo.addEventListener('click', () => inputDisplay('2'));
+numberThree.addEventListener('click', () => inputDisplay('3'));
+numberFour.addEventListener('click', () => inputDisplay('4'));
+numberFive.addEventListener('click', () => inputDisplay('5'));
+numberSix.addEventListener('click', () => inputDisplay('6'));
+numberSeven.addEventListener('click', () => inputDisplay('7'));
+numberEight.addEventListener('click', () => inputDisplay('8'));
+numberNine.addEventListener('click', () => inputDisplay('9'));
+numberZero.addEventListener('click', () => inputDisplay('0'));
 
-    operatorAdd.addEventListener('click', () => inputDisplay('+'));
-    operatorSubtract.addEventListener('click', () => inputDisplay('-'));
-    operatorMultiply.addEventListener('click', () => inputDisplay('*'));
-    operatorDivide.addEventListener('click', () => inputDisplay('/'));
+operatorAdd.addEventListener('click', () => inputDisplay('+'));
+operatorSubtract.addEventListener('click', () => inputDisplay('-'));
+operatorMultiply.addEventListener('click', () => inputDisplay('*'));
+operatorDivide.addEventListener('click', () => inputDisplay('/'));
 
-    deleteButton.addEventListener('click', () => inputDisplay('delete'));
-    clearButton.addEventListener('click', () => inputDisplay('clear'));
-    periodButton.addEventListener('click', () => inputDisplay('.'));
-    equalSign.addEventListener('click', () => operateNumbers(inputPara.textContent));
+deleteButton.addEventListener('click', () => inputDisplay('delete'));
+clearButton.addEventListener('click', () => inputDisplay('clear'));
+periodButton.addEventListener('click', () => inputDisplay('.'));
+equalSign.addEventListener('click', () => operateNumbers(inputPara.textContent));
 
-    window.addEventListener('keydown', pressKeyboard);
+answerButton.addEventListener('click', () => inputDisplay('answer'));
+
+window.addEventListener('keydown', pressKeyboard);
